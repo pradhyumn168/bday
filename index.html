@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<audio id="birthdayMusic" loop>
+    <source src="bday.mp3" type="audio/mpeg">
+</audio>
+
+<div id="welcomeScreen">
+
+    <div class="welcome-box">
+
+        <h1>🎂 A Special Birthday Surprise 🎂</h1>
+
+        <p>
+            Someone has prepared something beautiful for you ❤️
+        </p>
+
+        <button onclick="startExperience()">
+            Open Your Surprise ❤️
+        </button>
+
+    </div>
+
+</div>
+
+<div id="mainContent">
+
+    <div class="hearts">
+        <span>❤️</span>
+        <span>💖</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💝</span>
+        <span>❤️</span>
+        <span>💖</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💝</span>
+    </div>
+
+    <div class="card">
+
+        <h1>🎉 Happy Birthday Beautiful 🎉</h1>
+
+        <div class="photo-container">
+
+            <img
+                src="p1.jpeg"
+                id="birthdayPhoto"
+                class="birthday-photo"
+                alt="Birthday Girl">
+
+        </div>
+
+        <p class="intro">
+            Today is all about celebrating the wonderful person you are ✨
+        </p>
+
+        <div class="button-group">
+
+            <button onclick="showSurprise()">
+                🎁 Open Surprise
+            </button>
+
+            <button onclick="toggleMusic()">
+                🎵 Play / Pause Music
+            </button>
+
+        </div>
+
+        <div id="surpriseBox"></div>
+
+    </div>
+
+</div>
+
+<script>
+
+function startExperience(){
+
+    document.getElementById("welcomeScreen").style.display = "none";
+
+    document.getElementById("mainContent").style.display = "flex";
+
+    document.getElementById("birthdayMusic").play();
+
+}
+
+let count = 0;
+
+const photos = [
+    "p0.jpeg",
+    "p2.jpeg",
+    "p3.jpeg",
+    "p4.jpeg",
+    "p5.jpeg",
+    "p6.jpeg",
+    "p7.jpeg"
+];
+
+const messages = [
+
+    "🌹 Happy Birthday! May your smile always shine brighter than the stars.",
+
+    "✨ May this year bring happiness, success and unforgettable memories.",
+
+    "💖 You deserve all the love and joy in the world.",
+
+    "🎉 Thank you for coming into my life.",
+
+    "💕 Your smile can make my day brighter.",
+
+    "🌷 You are truly very very special to me!",
+
+    "❤️ Final Surprise ❤️ <br><br> Your presence makes life more beautiful. Every conversation, every smile and every moment with you is special. <br><br> 🌹 Will you be a special part of my life? 💍❤️"
+];
+
+function showSurprise(){
+
+    const photo =
+    document.getElementById("birthdayPhoto");
+
+    const box =
+    document.getElementById("surpriseBox");
+
+    if(count < messages.length){
+
+        photo.style.opacity = "0";
+
+        setTimeout(() => {
+
+            photo.src = photos[count];
+
+            box.innerHTML = messages[count];
+
+            photo.style.opacity = "1";
+
+            count++;
+
+        },400);
+
+    }
+    else{
+
+        box.innerHTML =
+        "🥰 Happy Birthday Once Again! Love You Soo Muchhh! ❤️🎂";
+
+    }
+
+}
+
+function toggleMusic(){
+
+    const music =
+    document.getElementById("birthdayMusic");
+
+    if(music.paused){
+
+        music.play();
+
+    }
+    else{
+
+        music.pause();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
